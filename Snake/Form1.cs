@@ -223,6 +223,7 @@ namespace Snake
             Snake.Clear();
 
             startButton.Enabled = false;
+            difficultyGame.Enabled = false;
 
             score = 0;
             txtScore.Text = "Score :" + score;
@@ -248,6 +249,11 @@ namespace Snake
             gameTimer.Start();
 
 
+
+        }
+
+        private void dropdown_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
 
@@ -288,6 +294,11 @@ namespace Snake
                 txtHighScore.TextAlign = ContentAlignment.MiddleCenter;
             }
 
+
+        }
+
+        private void Difficulty()
+        {
 
         }
     }
