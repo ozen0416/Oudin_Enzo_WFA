@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Snake.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,10 +26,13 @@ namespace Snake
         Random rand = new Random();
 
         bool goLeft, goRight, goUp, goDown;
+
+        private DateTime lastkey = DateTime.Now;
         public Form1()
         {
-            InitializeComponent();
 
+            InitializeComponent();
+            this.difficultyGame.SelectedIndex = 0;
             new Settings();
         }
 
@@ -44,23 +48,28 @@ namespace Snake
 
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Left && Settings.directions != "right")
+            DateTime curTime = DateTime.Now;
+            TimeSpan intervalBetweenKeys = TimeSpan.FromMilliseconds(90);
+            if (curTime - lastkey >= intervalBetweenKeys)
             {
-                goLeft = true;
+                if (e.KeyCode == Keys.Left && Settings.directions != "right")
+                {
+                    goLeft = true;
+                }
+                if (e.KeyCode == Keys.Right && Settings.directions != "left")
+                {
+                    goRight = true;
+                }
+                if (e.KeyCode == Keys.Up && Settings.directions != "down")
+                {
+                    goUp = true;
+                }
+                if (e.KeyCode == Keys.Down && Settings.directions != "up")
+                {
+                    goDown = true;
+                }
+                lastkey = curTime;
             }
-            if (e.KeyCode == Keys.Right && Settings.directions != "left")
-            {
-                goRight = true;
-            }
-            if (e.KeyCode == Keys.Up && Settings.directions != "down")
-            {
-                goUp = true;
-            }
-            if (e.KeyCode == Keys.Down && Settings.directions != "up")
-            {
-                goDown = true;
-            }
-
         }
 
         private void KeyIsUp(object sender, KeyEventArgs e)
@@ -182,11 +191,11 @@ namespace Snake
             {
                 if (i == 0)
                 {
-                    snakeColour = Brushes.Red;
+                    snakeColour = Brushes.Black;
                 }
                 else
                 {
-                    snakeColour = Brushes.Blue;
+                    snakeColour = Brushes.White;
                 }
 
                 canvas.FillEllipse(snakeColour, new Rectangle
@@ -196,7 +205,7 @@ namespace Snake
                     Settings.Width, Settings.Height
                     ));
             }
-            canvas.FillEllipse(Brushes.DarkRed, new Rectangle
+            canvas.FillEllipse(Brushes.Yellow, new Rectangle
                    (
                    food.X * Settings.Width,
                    food.Y * Settings.Height,
@@ -240,7 +249,6 @@ namespace Snake
 
         private void dropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
         }
 
         private void EatFood()
@@ -292,7 +300,6 @@ namespace Snake
             if (difficultyGame.SelectedItem.ToString() == "Normal")
             {
                 gameTimer.Interval = 30;
-                Image myImageNormal = new Bitmap(@"c:\Bureau\SnakeC#\Snake\background_image2.png");
             }
             if (difficultyGame.SelectedItem.ToString() == "Difficile")
             {

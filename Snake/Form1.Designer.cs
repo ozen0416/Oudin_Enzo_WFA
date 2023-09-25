@@ -29,15 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.startButton = new System.Windows.Forms.Button();
             this.picCanvas = new System.Windows.Forms.PictureBox();
             this.txtScore = new System.Windows.Forms.Label();
             this.txtHighScore = new System.Windows.Forms.Label();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.difficultyGame = new System.Windows.Forms.ComboBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,7 +42,7 @@
             // 
             this.startButton.BackColor = System.Drawing.Color.Lime;
             this.startButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startButton.Location = new System.Drawing.Point(211, 616);
+            this.startButton.Location = new System.Drawing.Point(556, 409);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(137, 77);
             this.startButton.TabIndex = 0;
@@ -56,10 +53,10 @@
             // picCanvas
             // 
             this.picCanvas.BackColor = System.Drawing.Color.Gray;
-            this.picCanvas.Image = ((System.Drawing.Image)(resources.GetObject("picCanvas.Image")));
-            this.picCanvas.Location = new System.Drawing.Point(40, 12);
+            this.picCanvas.Location = new System.Drawing.Point(55, 3);
             this.picCanvas.Name = "picCanvas";
-            this.picCanvas.Size = new System.Drawing.Size(505, 598);
+            this.picCanvas.Size = new System.Drawing.Size(441, 711);
+            this.picCanvas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picCanvas.TabIndex = 1;
             this.picCanvas.TabStop = false;
             this.picCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.UpdatePictureBoxGraphics);
@@ -90,15 +87,6 @@
             this.gameTimer.Interval = 40;
             this.gameTimer.Tick += new System.EventHandler(this.GameTimerEvent);
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(755, 30);
-            this.menuStrip1.TabIndex = 3;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
             // difficultyGame
             // 
             this.difficultyGame.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -106,18 +94,11 @@
             "Facile",
             "Normal",
             "Difficile"});
-            this.difficultyGame.SelectedIndex = 0;
             this.difficultyGame.Location = new System.Drawing.Point(556, 319);
             this.difficultyGame.Name = "difficultyGame";
             this.difficultyGame.Size = new System.Drawing.Size(183, 24);
             this.difficultyGame.TabIndex = 4;
             this.difficultyGame.SelectedIndexChanged += new System.EventHandler(this.dropdown_SelectedIndexChanged);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // Form1
             // 
@@ -129,8 +110,6 @@
             this.Controls.Add(this.txtScore);
             this.Controls.Add(this.picCanvas);
             this.Controls.Add(this.startButton);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Snake Game";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
@@ -148,9 +127,7 @@
         private System.Windows.Forms.Label txtScore;
         private System.Windows.Forms.Label txtHighScore;
         private System.Windows.Forms.Timer gameTimer;
-        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ComboBox difficultyGame;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
 
