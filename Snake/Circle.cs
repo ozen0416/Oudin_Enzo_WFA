@@ -14,7 +14,7 @@ namespace Snake
 
         public Circle()
         {
-            X = 0;
+            X = 410;
             Y = 0;
         }
     }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.startButton = new System.Windows.Forms.Button();
             this.picCanvas = new System.Windows.Forms.PictureBox();
             this.txtScore = new System.Windows.Forms.Label();
@@ -55,6 +56,7 @@
             // picCanvas
             // 
             this.picCanvas.BackColor = System.Drawing.Color.Gray;
+            this.picCanvas.Image = ((System.Drawing.Image)(resources.GetObject("picCanvas.Image")));
             this.picCanvas.Location = new System.Drawing.Point(40, 12);
             this.picCanvas.Name = "picCanvas";
             this.picCanvas.Size = new System.Drawing.Size(505, 598);
@@ -93,17 +95,18 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(746, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(755, 30);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // difficultyGame
             // 
-            this.difficultyGame.FormattingEnabled = true;
+            this.difficultyGame.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.difficultyGame.Items.AddRange(new object[] {
             "Facile",
             "Normal",
             "Difficile"});
+            this.difficultyGame.SelectedIndex = 0;
             this.difficultyGame.Location = new System.Drawing.Point(556, 319);
             this.difficultyGame.Name = "difficultyGame";
             this.difficultyGame.Size = new System.Drawing.Size(183, 24);
@@ -120,7 +123,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(746, 717);
+            this.ClientSize = new System.Drawing.Size(755, 717);
             this.Controls.Add(this.difficultyGame);
             this.Controls.Add(this.txtHighScore);
             this.Controls.Add(this.txtScore);

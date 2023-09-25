@@ -15,7 +15,7 @@ namespace Snake
         private List<Circle> Snake = new List<Circle>();
 
         private Circle food = new Circle();
-
+   
         int maxWidth;
         int maxHeight;
 
@@ -24,8 +24,7 @@ namespace Snake
 
         Random rand = new Random();
 
-        bool goLeft, goRight, goUp, goDown; 
-
+        bool goLeft, goRight, goUp, goDown;
         public Form1()
         {
             InitializeComponent();
@@ -87,9 +86,7 @@ namespace Snake
         private void StartGame(object sender, EventArgs e)
         {
             RestartGame();
-
-
-
+            Difficulty();
         }
 
         private void GameTimerEvent(object sender, EventArgs e)
@@ -169,14 +166,9 @@ namespace Snake
                     Snake[i].Y = Snake[i - 1].Y;
                 } 
 
-
-
             }
 
             picCanvas.Invalidate();
-
-
-
 
         }
 
@@ -203,9 +195,6 @@ namespace Snake
                     Snake[i].Y * Settings.Height,
                     Settings.Width, Settings.Height
                     ));
-
-
-
             }
             canvas.FillEllipse(Brushes.DarkRed, new Rectangle
                    (
@@ -247,20 +236,17 @@ namespace Snake
             };
 
             gameTimer.Start();
-
-
-
         }
 
         private void dropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void EatFood()
         {
             score += 1;
-            txtScore.Text = "Score :" + score;
+            txtScore.Text = "Score : " + score;
 
             Circle body = new Circle
             {
@@ -283,6 +269,7 @@ namespace Snake
         {
             gameTimer.Stop();
             startButton.Enabled = true;
+            difficultyGame.Enabled = true;
 
             if (score > highScore)
             {
@@ -292,14 +279,27 @@ namespace Snake
 
                 txtHighScore.ForeColor = Color.Gray;
                 txtHighScore.TextAlign = ContentAlignment.MiddleCenter;
+
             }
-
-
         }
 
         private void Difficulty()
         {
-
+            if (difficultyGame.SelectedItem.ToString() == "Facile")
+            {
+                gameTimer.Interval = 50;
+            }
+            if (difficultyGame.SelectedItem.ToString() == "Normal")
+            {
+                gameTimer.Interval = 30;
+                Image myImageNormal = new Bitmap(@"c:\Bureau\SnakeC#\Snake\background_image2.png");
+            }
+            if (difficultyGame.SelectedItem.ToString() == "Difficile")
+            {
+                gameTimer.Interval = 10;
+            }
         }
+
+
     }
 }
