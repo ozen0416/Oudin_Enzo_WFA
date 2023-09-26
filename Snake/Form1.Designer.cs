@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.startButton = new System.Windows.Forms.Button();
-            this.picCanvas = new System.Windows.Forms.PictureBox();
             this.txtScore = new System.Windows.Forms.Label();
             this.txtHighScore = new System.Windows.Forms.Label();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.difficultyGame = new System.Windows.Forms.ComboBox();
+            this.picCanvas = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,17 +49,6 @@
             this.startButton.Text = " Play";
             this.startButton.UseVisualStyleBackColor = false;
             this.startButton.Click += new System.EventHandler(this.StartGame);
-            // 
-            // picCanvas
-            // 
-            this.picCanvas.BackColor = System.Drawing.Color.Gray;
-            this.picCanvas.Location = new System.Drawing.Point(55, 3);
-            this.picCanvas.Name = "picCanvas";
-            this.picCanvas.Size = new System.Drawing.Size(441, 711);
-            this.picCanvas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picCanvas.TabIndex = 1;
-            this.picCanvas.TabStop = false;
-            this.picCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.UpdatePictureBoxGraphics);
             // 
             // txtScore
             // 
@@ -100,6 +89,17 @@
             this.difficultyGame.TabIndex = 4;
             this.difficultyGame.SelectedIndexChanged += new System.EventHandler(this.dropdown_SelectedIndexChanged);
             // 
+            // picCanvas
+            // 
+            this.picCanvas.BackColor = System.Drawing.Color.Gray;
+            this.picCanvas.Location = new System.Drawing.Point(53, -6);
+            this.picCanvas.Name = "picCanvas";
+            this.picCanvas.Size = new System.Drawing.Size(441, 711);
+            this.picCanvas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picCanvas.TabIndex = 1;
+            this.picCanvas.TabStop = false;
+            this.picCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.UpdatePictureBoxGraphics);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -111,7 +111,6 @@
             this.Controls.Add(this.picCanvas);
             this.Controls.Add(this.startButton);
             this.Name = "Form1";
-            this.Text = "Snake Game";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).EndInit();
