@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Versioning;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -307,7 +308,7 @@ namespace Snake
             }
         }
 
-        private void Difficulty()
+        private void Difficulty(PaintEventArgs e)
         {
             //Change la vitesse du snake en fonction de la difficulté choisie
             if (difficultyGame.SelectedItem.ToString() == "Facile")
@@ -317,10 +318,45 @@ namespace Snake
             if (difficultyGame.SelectedItem.ToString() == "Normal")
             {
                 gameTimer.Interval = 30;
+
+                picCanvas.Image = Resources.épée;
+
+                Graphics canvas = e.Graphics;
+
+                Brush snakeColour;
+
+                for (int i = 0; i < Snake.Count; i++)
+                {
+                    //Couleur de la tête
+                    if (i == 0)
+                    {
+                        snakeColour = Brushes.Red;
+                    }
+                    //Couleur du corps
+                    else
+                    {
+                        snakeColour = Brushes.Orange;
+                    }
+                    //Rempli le premier cercle avec sa couleur
+                    canvas.FillEllipse(snakeColour, new Rectangle
+                        (
+                        Snake[i].X * Settings.Width,
+                        Snake[i].Y * Settings.Height,
+                        Settings.Width, Settings.Height
+                        ));
+                }
+                //Rempli le reste avec sa couleur
+                canvas.FillEllipse(Brushes.Yellow, new Rectangle
+                       (
+                       food.X * Settings.Width,
+                       food.Y * Settings.Height,
+                       Settings.Width, Settings.Height
+                       ));
             }
             if (difficultyGame.SelectedItem.ToString() == "Difficile")
             {
                 gameTimer.Interval = 10;
+                picCanvas.Image = Resources.brachydios;
             }
         }
 

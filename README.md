@@ -14,4 +14,8 @@ Ce projet est une création de mini-jeu avec un choix large concernant le sujet.
 
 * *Jour 3* : Création des nouvelles fonctionnalités (Difficulté, amélioration du visuel)
 
-* *Jour 4*: Difficultés fonctionnelles + changement d'image de fond selon la difficulté (petit thème marrant)
+* *Jour 4*: Difficultés fonctionnelles + changement d'image de fond selon la difficulté
+
+* *Jour 5* : Blocage sur l'image de fond + changement de thème + commentaire
+
+* *Jour 6* : 

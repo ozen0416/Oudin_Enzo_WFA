@@ -92,6 +92,7 @@
             // picCanvas
             // 
             this.picCanvas.BackColor = System.Drawing.Color.Gray;
+            this.picCanvas.Image = global::Snake.Properties.Resources.heart;
             this.picCanvas.Location = new System.Drawing.Point(53, -6);
             this.picCanvas.Name = "picCanvas";
             this.picCanvas.Size = new System.Drawing.Size(441, 711);
